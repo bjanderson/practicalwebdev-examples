@@ -9,6 +9,6 @@ export class Address {
   }
 
   getFullAddress() {
-    return `${this.street} ${this.city} ${this.state} ${this.zipCode}`
+    return `${this.street} ${this.city} ${this.state} ${this.zipCode}`.trim()
   }
 }

@@ -6,9 +6,20 @@
   "license": "See: LICENSE",
   "private": true,
   "scripts": {
-    "start": "lite-server"
+    "start": "lite-server",
+    "test": "mocha --require babel-core/register --watch --watch-extensions js src/**/*.test.js"
   },
   "devDependencies": {
-    "lite-server": "2.3.0"
+    "babel-core": "6.26.0",
+    "babel-preset-es2015": "6.24.1",
+    "chai": "4.1.2",
+    "lite-server": "2.3.0",
+    "mocha": "4.1.0",
+    "sinon": "4.1.3"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
 }
