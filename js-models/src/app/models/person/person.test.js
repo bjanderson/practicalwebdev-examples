@@ -16,16 +16,6 @@ function testDefaults(instance) {
 }
 
 describe('Person', function () {
-  it('passes', function () {
-    expect(true).to.equal(true)
-  })
-
-  describe('constructor', function () {
-    it('creates an instance', function () {
-      const instance = new Person()
-      expect(instance).to.exist
-    })
-  })
 
   describe('constructor', function () {
     it('creates an instance', function () {
@@ -80,7 +70,8 @@ describe('Person', function () {
       }
 
       const instance = new Person(obj)
-      expect(instance.fullName).to.equal('test-firstName test-lastName')
+      const expected = 'test-firstName test-lastName'
+      expect(instance.fullName).to.equal(expected)
     })
 
     it('creates an array of friends when given a single object', function () {
@@ -110,6 +101,27 @@ describe('Person', function () {
       ]
 
       expect(Object.keys(instance)).to.have.same.members(fields)
+    })
+  })
+
+  describe('getFullName()', function () {
+    it('returns an empty string by default', function () {
+      let instance = new Person()
+      const result = instance.getFullName()
+      const expected = ''
+      expect(result).to.equal(expected)
+    })
+
+    it('returns the fullName', function () {
+      const obj = {
+        firstName: 'test-firstName',
+        lastName: 'test-lastName'
+      }
+
+      const instance = new Person(obj)
+      const result = instance.getFullName()
+      const expected = 'test-firstName test-lastName'
+      expect(result).to.equal(expected)
     })
   })
 })

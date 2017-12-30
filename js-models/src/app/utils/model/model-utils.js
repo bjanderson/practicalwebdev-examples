@@ -13,6 +13,7 @@ export class ModelUtils {
   }
 
   static isInstanceOf(clazz, obj) {
+    if (clazz == null) { return false }
     const model = new clazz()
     const modelKeys = Object.keys(model)
 

@@ -12,16 +12,6 @@ function testDefaults(instance) {
 }
 
 describe('Address', function () {
-  it('passes', function () {
-    expect(true).to.equal(true)
-  })
-
-  describe('constructor', function () {
-    it('creates an instance', function () {
-      const instance = new Address()
-      expect(instance).to.exist
-    })
-  })
 
   describe('constructor', function () {
     it('creates an instance', function () {
@@ -46,10 +36,10 @@ describe('Address', function () {
 
     it('sets the values from the input to the corresponding model properties', function () {
       const obj = {
-        city: 'test city',
-        state: 'test state',
-        street: 'test street',
-        zipCode: 'test zipCode'
+        city: 'test-city',
+        state: 'test-state',
+        street: 'test-street',
+        zipCode: 'test-zipCode'
       }
 
       const instance = new Address(obj)
@@ -60,14 +50,15 @@ describe('Address', function () {
 
     it('adds a field named fullAddress and sets the correct value', function () {
       const obj = {
-        city: 'test city',
-        state: 'test state',
-        street: 'test street',
-        zipCode: 'test zipCode'
+        city: 'test-city',
+        state: 'test-state',
+        street: 'test-street',
+        zipCode: 'test-zipCode'
       }
 
       const instance = new Address(obj)
-      expect(instance.fullAddress).to.equal('test street test city test state test zipCode')
+      const expected = 'test-street test-city test-state test-zipCode'
+      expect(instance.fullAddress).to.equal(expected)
     })
 
     it('creates a model with all of, and only, the expected fields', function () {
@@ -81,6 +72,29 @@ describe('Address', function () {
       ]
 
       expect(Object.keys(instance)).to.have.same.members(fields)
+    })
+  })
+
+  describe('getFullAddress()', function () {
+    it('returns an empty string by default', function () {
+      const instance = new Address()
+      const result = instance.getFullAddress()
+      const expected = ''
+      expect(result).to.equal(expected)
+    })
+
+    it('returns the full address', function () {
+      const obj = {
+        city: 'test-city',
+        state: 'test-state',
+        street: 'test-street',
+        zipCode: 'test-zipCode'
+      }
+
+      const instance = new Address(obj)
+      const result = instance.getFullAddress()
+      const expected = 'test-street test-city test-state test-zipCode'
+      expect(result).to.equal(expected)
     })
   })
 })
