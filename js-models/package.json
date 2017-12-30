@@ -7,7 +7,8 @@
   "private": true,
   "scripts": {
     "start": "lite-server",
-    "test": "mocha --require babel-core/register --watch --watch-extensions js src/**/*.test.js"
+    "test": "mocha --require babel-core/register --watch src/**/*.test.js",
+    "test:cover": "nyc --reporter=html --reporter=text mocha --require babel-core/register src/**/*.test.js"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
@@ -15,6 +16,7 @@
     "chai": "4.1.2",
     "lite-server": "2.3.0",
     "mocha": "4.1.0",
+    "nyc": "11.4.1",
     "sinon": "4.1.3"
   },
   "babel": {
