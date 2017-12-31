@@ -1,5 +1,6 @@
 export class ModelUtils {
   static hasPropertyOf(clazz, obj) {
+    if (clazz == null || obj == null) { return false }
     const model = new clazz()
     const modelKeys = Object.keys(model)
 
@@ -13,7 +14,7 @@ export class ModelUtils {
   }
 
   static isInstanceOf(clazz, obj) {
-    if (clazz == null) { return false }
+    if (clazz == null || obj == null) { return false }
     const model = new clazz()
     const modelKeys = Object.keys(model)
 
