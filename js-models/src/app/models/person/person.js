@@ -5,7 +5,7 @@ export class Person {
   constructor(obj) {
     obj = obj != null ? obj : {}
     this.address = new Address(obj.address)
-    this.birthDate = Utils.date.isValidDate(obj.birthDate) ? new Date(obj.birthDate) : ''
+    this.birthDate = Utils.date.getDate(obj.birthDate)
     this.firstName = obj.firstName != null ? obj.firstName : ''
     this.friends = Utils.array.getArrayOfModels(Person, obj.friends)
     this.lastName = obj.lastName != null ? obj.lastName : ''

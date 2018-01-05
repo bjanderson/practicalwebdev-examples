@@ -21,6 +21,22 @@ describe('DateUtils', function () {
     })
   })
 
+  describe('getDate(date)', function () {
+    it('returns a JavaScript Date if the input is a valid date', function () {
+      const date = '1/2/2020'
+      const expected = new Date(date).toString()
+      const result = DateUtils.getDate(date).toString()
+      expect(result).to.equal(expected)
+    })
+
+    it('returns an empty string if the input is not a valid date', function () {
+      const date = '99/00/2020'
+      const expected = ''
+      const result = DateUtils.getDate(date)
+      expect(result).to.equal(expected)
+    })
+  })
+
   describe('isValidDate(date)', function () {
     it('returns true when the date is a correct mmddyyyy string', function () {
       const date = '1/2/2020'

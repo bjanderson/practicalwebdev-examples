@@ -1,4 +1,5 @@
 export class DateUtils {
+
   static formatDate(date) {
     let formattedDate = ''
 
@@ -9,6 +10,16 @@ export class DateUtils {
     }
 
     return formattedDate
+  }
+
+  static getDate(date) {
+    let theDate = ''
+
+    if (DateUtils.isValidDate(date)) {
+      theDate = new Date(date)
+    }
+
+    return theDate
   }
 
   static isValidDate(date) {
